@@ -1,9 +1,24 @@
 import sys
 import os
 
+
+from wm_ui import Ui_Form
+
 # Import modules
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
+
+from PySide6 import QtWidgets as qtw
+from PySide6 import QtCore as qtc
+
+from qt_material import apply_stylesheet
+
+
+class MainWindow(qtw.QWidget):
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
 
 
 # from tkinter import *
@@ -41,12 +56,18 @@ from PySide6.QtQml import QQmlApplicationEngine
 # window.mainloop()
 
 if __name__ == "__main__":
-    app = QGuiApplication(sys.argv)
-    engine = QQmlApplicationEngine()
-    print(os.path.join(os.path.dirname(__file__), "qml", "main.qml"))
-    engine.load("project\\qml\\main.qml")  # Relative dir since i'm in a venv
+    # app = QGuiApplication(sys.argv)
+    # engine = QQmlApplicationEngine()
+    # print(os.path.join(os.path.dirname(__file__), "qml", "main.qml"))
+    # engine.load("project\\qml\\main.qml")  # Relative dir since i'm in a venv
 
-    if not engine.rootObjects():
-        sys.exit(-1)
-    sys.exit(app.exec_())
+    app = qtw.QApplication([])
+    widget = MainWindow()
+    apply_stylesheet(app, theme="dark_cyan.xml")
+    widget.show()
+
+    app.exec_()
+    # if not engine.rootObjects():
+    #     sys.exit(-1)
+    # sys.exit(app.exec_())
     # print(os.path.dirname(__file__))
