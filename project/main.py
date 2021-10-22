@@ -1,7 +1,3 @@
-import sys
-import os
-
-
 from wm_ui import Ui_Form
 
 # Import modules
@@ -11,8 +7,6 @@ from PySide6.QtQml import QQmlApplicationEngine
 from PySide6 import QtWidgets as qtw
 from PySide6 import QtCore as qtc
 
-from qt_material import apply_stylesheet
-
 
 class MainWindow(qtw.QWidget):
     def __init__(self, *args, **kwargs) -> None:
@@ -20,11 +14,17 @@ class MainWindow(qtw.QWidget):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
+        self.ui.btnDirectory.clicked.connect(self.get_path)
 
-# from tkinter import *
+    def get_path(self):
 
-# # Tk, Canvas, Button
-# from tkinter import filedialog
+        file_path = qtw.QFileDialog.getOpenFileName(
+            self,
+            "Select your image file",
+            dir="/",
+            filter="Image files (*.jpg *.png *.bmp *.jpeg)",
+        )
+        print(file_path[0])
 
 
 # def find_img():
@@ -35,12 +35,6 @@ class MainWindow(qtw.QWidget):
 #         filetypes=[("image files", "*.jpg *.png *.bmp *.jpeg")],
 #     )
 #     print(filename)
-
-
-# window = Tk()
-# window.title("Image Watermark Program")
-# # window.minsize(width=800,height=500)
-# window.config(padx=50, pady=50)
 
 
 # canvas = Canvas(width=500, height=500, highlightthickness=1, bg="white")
@@ -56,15 +50,14 @@ class MainWindow(qtw.QWidget):
 # window.mainloop()
 
 if __name__ == "__main__":
-    # app = QGuiApplication(sys.argv)
-    # engine = QQmlApplicationEngine()
-    # print(os.path.join(os.path.dirname(__file__), "qml", "main.qml"))
-    # engine.load("project\\qml\\main.qml")  # Relative dir since i'm in a venv
 
     app = qtw.QApplication([])
     widget = MainWindow()
-    apply_stylesheet(app, theme="dark_cyan.xml")
     widget.show()
+
+    with open("project/material-blue.qss", "r") as f:
+        _style = f.read()
+        app.setStyleSheet(_style)
 
     app.exec_()
     # if not engine.rootObjects():
