@@ -78,14 +78,15 @@ class Ui_Form(object):
 
         self.imagePlaceholder = QLabel(self.verticalLayoutWidget)
         self.imagePlaceholder.setObjectName(u"imagePlaceholder")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(
-            self.imagePlaceholder.sizePolicy().hasHeightForWidth()
-        )
-        self.imagePlaceholder.setSizePolicy(sizePolicy1)
-        self.imagePlaceholder.setScaledContents(True)
+        # sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        # sizePolicy1.setHorizontalStretch(0)
+        # sizePolicy1.setVerticalStretch(0)
+        # # sizePolicy1.setHeightForWidth(
+        # #     self.imagePlaceholder.sizePolicy().hasHeightForWidth()
+        # #     # True
+        # # )
+        # self.imagePlaceholder.setSizePolicy(sizePolicy1)
+        # self.imagePlaceholder.setScaledContents(True)
         self.imagePlaceholder.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.imagePlaceholder)
