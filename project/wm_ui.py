@@ -78,15 +78,6 @@ class Ui_Form(object):
 
         self.imagePlaceholder = QLabel(self.verticalLayoutWidget)
         self.imagePlaceholder.setObjectName(u"imagePlaceholder")
-        # sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        # sizePolicy1.setHorizontalStretch(0)
-        # sizePolicy1.setVerticalStretch(0)
-        # # sizePolicy1.setHeightForWidth(
-        # #     self.imagePlaceholder.sizePolicy().hasHeightForWidth()
-        # #     # True
-        # # )
-        # self.imagePlaceholder.setSizePolicy(sizePolicy1)
-        # self.imagePlaceholder.setScaledContents(True)
         self.imagePlaceholder.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.imagePlaceholder)
@@ -132,7 +123,7 @@ class Ui_Form(object):
         self.imagePlaceholder.setText(
             QCoreApplication.translate(
                 "Form",
-                u"<html><head/><body><p>1. Click on select image</p><p>2. Add the text for watermark</p><p>3. Preview watermark</p><p>4. Save the new image</p></body></html>",
+                u"<html><head/><body><p>1. Click on 'select image'</p><p>2. Add the text for watermark</p><p>3. Preview watermark</p><p>4. Save the new image</p></body></html>",
                 None,
             )
         )
@@ -140,8 +131,10 @@ class Ui_Form(object):
             QCoreApplication.translate("Form", u"Your watermark:", None)
         )
         self.btnPreview.setText(
-            QCoreApplication.translate("Form", u"Preview image", None)
+            QCoreApplication.translate("Form", u"Preview watermark", None)
         )
-        self.btnSave.setText(QCoreApplication.translate("Form", u"Save image", None))
+        self.btnSave.setText(
+            QCoreApplication.translate("Form", u"Save watermarked image", None)
+        )
 
     # retranslateUi
